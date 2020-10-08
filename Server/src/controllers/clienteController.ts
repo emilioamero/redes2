@@ -4,9 +4,17 @@ import pool from '../basededatos';
 class ClienteController {
     
 
+    public async listBusqueda(req: Request, res: Response): Promise<void> {
+        const { nombrecliente } = req.params;
+        const clientes = await pool.query('SELECT * FROM cliente where nombrecliente like ?','%' + [nombrecliente] + '%');
+        res.json(clientes);
+              
+    }
+
     public async list(req: Request, res: Response): Promise<void> {
-        const games = await pool.query('SELECT * FROM cliente');
-        res.json(games);
+        const clientes = await pool.query('SELECT * FROM cliente');
+         res.json(clientes);
+              
     }
 
     /* 

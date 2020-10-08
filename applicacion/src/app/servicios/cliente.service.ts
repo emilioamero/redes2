@@ -9,8 +9,13 @@ import​ { ​Observable​ } ​from​​'rxjs';
 export class ClienteService {
 
   constructor​(​private​​http​: ​HttpClient​) { }
+  obtengoClientesBusqueda(nombrecliente:string) : ​Observable​<​any​>{
+    ​return​​ this​.​http​.​get​(​`http://localhost:3000/api/cliente/${nombrecliente}`​​);
+
+  }
+
   obtengoClientes() : ​Observable​<​any​>{
-    ​return​​ this​.​http​.​get​(​"http://localhost:3000/api/cliente"​);
+    ​return​​ this​.​http​.​get​(​`http://localhost:3000/api/cliente`​​);
 
   }
 

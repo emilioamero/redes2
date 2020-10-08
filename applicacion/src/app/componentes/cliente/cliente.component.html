@@ -3,6 +3,27 @@
   <div class="card-header">Clientes</div>
   <div class="card-body text-primary">
 
+    <form>
+
+      <div class="form-group row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">Buscar</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" (change)="fun_busqueda()"  name="namebusqueda" [(ngModel)]="busqueda">
+
+        </div>
+        <div class="col-sm-2">
+          <button type="button" class="btn btn-primary btn-block" name="btnbuscar" (click)="fun_busqueda()">
+            <span class="fa fa-search"></span>
+            Buscar
+          </button>
+        </div>
+
+
+
+      </div>
+    </form>
+
+
   <!--   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
  -->
     <table class="table table-bordered">

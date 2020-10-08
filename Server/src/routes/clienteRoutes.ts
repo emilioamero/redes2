@@ -11,6 +11,7 @@ class ClienteRoutes {
     }
 
     config() {
+        this.router.get('/:nombrecliente', clienteController.listBusqueda);
         this.router.get('/', clienteController.list);
 /*         this.router.get('/:id', gamesController.getOne);
         this.router.post('/', gamesController.create);
