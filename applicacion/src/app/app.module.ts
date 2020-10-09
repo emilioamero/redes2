@@ -11,6 +11,8 @@ import { PrincipalComponent } from './componentes/principal/principal.component'
 import { ClienteComponent } from './componentes/cliente/cliente.component';
 import { EditarClienteComponent } from './componentes/editar-cliente/editar-cliente.component';
 import { FooterComponent } from './componentes/footer/footer.component';
+import { PedidoComponent } from './componentes/pedido/pedido.component';
+import { PedidoabmComponent } from './componentes/pedidoabm/pedidoabm.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { FooterComponent } from './componentes/footer/footer.component';
     PrincipalComponent,
     ClienteComponent,
     EditarClienteComponent,
-    FooterComponent
+    FooterComponent,
+    PedidoComponent,
+    PedidoabmComponent
   ],
   imports: [
     BrowserModule,
