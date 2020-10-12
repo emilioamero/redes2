@@ -11,21 +11,34 @@
           <label for="inputState">Servicios</label>
           <select id="inputState" class="form-control" name="servicios">
             <option *ngFor="let item of servicios" value= {{item.idServicio}}>
-              {{item.Nombre}}
+              {{item.Nombre}} (${{item.precio}})
             </option>
           </select>
-      </div>
-    </div>
+       </div>
         <div class="form-group">
-          <label >Nombre</label>
-          <input type="text" class="form-control" id="inputAddress" value="variable">
-        </div>
+          <label >Cantidad</label>
+          <select  class="form-control" name="cantidad">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+
+          </select>
+
+        </div><!-- fin group -->
+
+
+
+      </div>
+
+     <button type="submit" class="btn btn-primary mb-2"><span class="fa fa-plus-square-o"></span> Agregar</button>
+
+
+
     </form>
 
 
- <!--      <button type="submit" class="btn btn-primary" (click)="guardar()">Editar</button>
-
-      <button type="submit" class="btn btn-primary" (click)="backClicked()">Volver</button> -->
 
 
 

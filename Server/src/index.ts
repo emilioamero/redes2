@@ -4,9 +4,9 @@ import cors from 'cors';
 
 /* IMPORTANTE importar las rutas aca en el index  */
 import indexRoutes from './routes/indexRoutes';
-import gamesRoutes from './routes/gamesRoutes';
 import clienteRoutes from './routes/clienteRoutes';
 import pedidoRoutes from './routes/pedidoroutes';
+import servicioRoutes from './routes/servicioRoutes';
 
 class Server {
 
@@ -17,9 +17,10 @@ class Server {
         /* Ruta Inicial */
         this.app.use('/', indexRoutes);
         /* Ruta Relativa es decir para hacer funcionar tiene que tener el prefijo /api/games para las rutas declaradas en gameroutes */
-        this.app.use('/api/games', gamesRoutes);
         this.app.use('/api/cliente', clienteRoutes);
         this.app.use('/api/pedido', pedidoRoutes);
+        this.app.use('/api/servicio', servicioRoutes);
+    
         
 
     }
