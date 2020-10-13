@@ -12,6 +12,7 @@ class PedidoRoutes {
 
     config() {
         this.router.get('/', PedidoController.list);
+        this.router.post('/', PedidoController.create);
 /*         this.router.get('/:id', gamesController.getOne);
         this.router.post('/', gamesController.create);
         this.router.put('/:id', gamesController.update);

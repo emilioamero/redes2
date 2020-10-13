@@ -9,7 +9,7 @@
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputState">Servicios</label>
-          <select id="inputState" class="form-control" name="servicios">
+          <select id="inputState" class="form-control" name="name_servicios" [(ngModel)]="detallePedido.idServicio" (change)="capturarValorCombo('servicio')">
             <option *ngFor="let item of servicios" value= {{item.idServicio}}>
               {{item.Nombre}} (${{item.precio}})
             </option>
@@ -17,7 +17,7 @@
        </div>
         <div class="form-group">
           <label >Cantidad</label>
-          <select  class="form-control" name="cantidad">
+          <select  class="form-control" name="cantidad" [(ngModel)]="detallePedido.cantidad" (change)="capturarValorCombo('cantidad')">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -32,7 +32,7 @@
 
       </div>
 
-     <button type="submit" class="btn btn-primary mb-2"><span class="fa fa-plus-square-o"></span> Agregar</button>
+     <button (click)="guardarDetPedido()" type="submit" class="btn btn-primary mb-2" ><span class="fa fa-plus-square-o"></span> Agregar</button>
 
 
 

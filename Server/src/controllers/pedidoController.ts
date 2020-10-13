@@ -27,7 +27,8 @@ class PedidoController {
 
     public async create(req: Request, res: Response): Promise<void> {
         const result = await pool.query('INSERT INTO pedido set ?', [req.body]);
-        res.json({ message: 'Pedido Saved' });
+      /*   res.json({ message: 'Pedido Saved' }); */
+        res.json(result);
     }
 
     public async update(req: Request, res: Response): Promise<void> {

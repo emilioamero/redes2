@@ -13,6 +13,8 @@ import { EditarClienteComponent } from './componentes/editar-cliente/editar-clie
 import { FooterComponent } from './componentes/footer/footer.component';
 import { PedidoComponent } from './componentes/pedido/pedido.component';
 import { PedidoabmComponent } from './componentes/pedidoabm/pedidoabm.component';
+/* Formatear */
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -29,9 +31,10 @@ import { PedidoabmComponent } from './componentes/pedidoabm/pedidoabm.component'
     BrowserModule,
     AppRoutingModule,
     ​HttpClientModule,
-    FormsModule​
+    FormsModule
+    ​
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
