@@ -19,7 +19,9 @@ export class PedidoabmComponent implements OnInit {
   nombre_cliente:string='';
   servicios:any=[];
   detalleSDePedido:Observable<any[]>;
+  totalDetallesPedido:any=[];
 /* detalleSDePedido:any=[]; */
+  validaCamposrequeridos:boolean=false;
 
 
 
@@ -29,6 +31,8 @@ export class PedidoabmComponent implements OnInit {
   };
   detallePedido:DetallePedido={
     idPedido:0,
+    cantidad:0,
+    idServicio:0
 
   };
   respuestaServidor:any=[];
@@ -65,6 +69,23 @@ export class PedidoabmComponent implements OnInit {
 
 
     this.guardarPedido();
+
+
+  }
+
+  eliminarDetalle(idDetalle:number){
+
+
+    this.detallePedidoService.eliminaDetalle(idDetalle)
+    .subscribe(
+      res => {
+        console.log(res);
+        this.cargarGrillaDetallePedido();
+      },
+      err => console.log(err)
+    )
+
+
 
 
   }
@@ -118,6 +139,23 @@ export class PedidoabmComponent implements OnInit {
   }
 
 
+fn_totalDetalles(){
+  this.detallePedidoService.obtengoTotalPedidos(this.pedido.idPedido)
+  .subscribe(
+    res => {
+
+      this.totalDetallesPedido=res;
+
+
+    },
+    err => {
+      console.error(err);
+
+      return
+    }
+  )
+}
+
 cargarGrillaDetallePedido(){
 
 
@@ -136,6 +174,9 @@ cargarGrillaDetallePedido(){
     }
   )
 
+
+  this.fn_totalDetalles()
+
 }
 
 
@@ -143,6 +184,13 @@ cargarGrillaDetallePedido(){
 
   guardarDetPedido(){
 
+    if(this.detallePedido.idServicio==0 || this.detallePedido.cantidad== 0){
+
+      this.validaCamposrequeridos=true;
+      return
+    }else{
+      this.validaCamposrequeridos=false;
+    }
 
     this.detallePedidoService.guardarDetallepedido(this.detallePedido)
     .subscribe(
@@ -158,6 +206,8 @@ cargarGrillaDetallePedido(){
         return
       }
     )
+
+
 
   }
 

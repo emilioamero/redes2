@@ -18,6 +18,12 @@ export class DetallePedidoService {
 
   }
 
+  obtengoTotalPedidos(idPedido:number) : ​Observable​<​any​>{
+    ​return​​ this​.​http​.​get​(​`${this.globals.URLapidatos}/detallePedido/totaldetalle/${idPedido}`​​);
+
+  }
+
+
 
   guardarDetallepedido(detallePedido:DetallePedido ) {
     return this.http.post(`${this.globals.URLapidatos}/detallePedido`, detallePedido);
@@ -26,7 +32,7 @@ export class DetallePedidoService {
 
 
 
-  eliminaDetalle(idDetallepedido: string) {
+  eliminaDetalle(idDetallepedido: number) {
     return this.http.delete(`${this.globals.URLapidatos}/detallePedido/${idDetallepedido}`);
   }
 

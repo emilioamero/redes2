@@ -12,6 +12,7 @@ class detallePedidoRoutes {
 
     config() {
         this.router.get('/:idPedido', detallePedidoController.list);
+        this.router.get('/totaldetalle/:idPedido', detallePedidoController.calculoTotalPedido);
         this.router.delete('/:idDetallepedido', detallePedidoController.delete);
         this.router.post('/', detallePedidoController.create);
         

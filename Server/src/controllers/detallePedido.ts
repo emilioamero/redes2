@@ -6,18 +6,29 @@ class DetallePedidoController {
 
     public async list(req: Request, res: Response): Promise<any> {
         const { idPedido } = req.params;
-        const detallepedido = await pool.query('SELECT * FROM detallePedido where idPedido = ?', [idPedido]);
+        const detallepedido = await pool.query('SELECT * FROM VDetallepedido where idPedido = ?', [idPedido]);
        
-        if (detallepedido.length > 0) {
+        /* if (detalltgtgggggepedido.length > 0) { */
             res.json(detallepedido);
-        }else{
-            res.status(404).json({ text: "No hay detalles pedidos" }); 
+ /*        }else{
+            res.json({ text: "No hay ggggggdetalles pedidos" }); 
         }
-
+  */
         
     }
 
     
+    public async calculoTotalPedido(req: Request, res: Response): Promise<any> {
+        const { idPedido } = req.params;
+        const detallepedido = await pool.query('SELECT SUM(cantidad*precio) AS total FROM VDetallepedido WHERE idpedido= ?', [idPedido]);
+       
+        if (detallepedido.length > 0) {
+            res.json(detallepedido[0]);
+        }
+        
+    }
+
+
 /*     public async getOne(req: Request, res: Response): Promise<any> {
         const { id } = req.params;
         const games = await pool.query('SELECT * FROM pedido WHERE idpedido = ?', [id]);
