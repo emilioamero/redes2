@@ -5,7 +5,7 @@ import cors from 'cors';
 /* IMPORTANTE importar las rutas aca en el index  */
 import indexRoutes from './routes/indexRoutes';
 import clienteRoutes from './routes/clienteRoutes';
-import pedidoRoutes from './routes/pedidoroutes';
+import pedidoRoutes from './routes/pedidoRoutes'
 import servicioRoutes from './routes/servicioRoutes';
 import detallepedidoRoutes from './routes/detallePedidoRoutes';
 

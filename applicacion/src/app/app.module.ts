@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import​ { ​HttpClientModule​ } ​from​​'@angular/common/http'​;
 import { FormsModule } from "@angular/forms";
-
+import { Globals } from './globales';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,7 +34,7 @@ import { DatePipe } from '@angular/common';
     FormsModule
     ​
   ],
-  providers: [DatePipe],
+  providers: [Globals,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

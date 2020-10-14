@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import​ { ​HttpClient​ } ​from​​'@angular/common/http'​;
 import​ { ​Observable​ } ​from​​'rxjs';
 import { DetallePedido } from '../modelos/detallePedido';
+import {Globals} from 'src/app/globales'
 
 
 @Injectable({
@@ -9,25 +10,24 @@ import { DetallePedido } from '../modelos/detallePedido';
 })
 export class DetallePedidoService {
 
-  API_URI = 'http://localhost:3000/api';
 
-  constructor(private​​http​: ​HttpClient) {}
+  constructor(private​​http​: ​HttpClient,private globals:Globals) {}
 
   obtengoDetallesPedidos(idPedido:number) : ​Observable​<​any​>{
-    ​return​​ this​.​http​.​get​(​`${this.API_URI}/detallePedido/${idPedido}`​​);
+    ​return​​ this​.​http​.​get​(​`${this.globals.URLapidatos}/detallePedido/${idPedido}`​​);
 
   }
 
 
   guardarDetallepedido(detallePedido:DetallePedido ) {
-    return this.http.post(`${this.API_URI}/detallePedido`, detallePedido);
+    return this.http.post(`${this.globals.URLapidatos}/detallePedido`, detallePedido);
   }
 
 
 
 
   eliminaDetalle(idDetallepedido: string) {
-    return this.http.delete(`${this.API_URI}/detallePedido/${idDetallepedido}`);
+    return this.http.delete(`${this.globals.URLapidatos}/detallePedido/${idDetallepedido}`);
   }
 
 
