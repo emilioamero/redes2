@@ -6,6 +6,7 @@ import { DetallePedido } from '../../modelos/detallePedido';
 import { PedidoService } from '../../servicios/pedido.service';
 import { DetallePedidoService } from '../../servicios/detalle-pedido.service';
 import { DatePipe } from '@angular/common';
+import { Observable, of } from "rxjs";
 
 @Component({
   selector: 'app-pedidoabm',
@@ -17,6 +18,10 @@ export class PedidoabmComponent implements OnInit {
   id_Cliente:number=0;
   nombre_cliente:string='';
   servicios:any=[];
+  detalleSDePedido:Observable<any[]>;
+/* detalleSDePedido:any=[]; */
+
+
 
   fechaActual = new Date();
   pedido:Pedido={
@@ -98,6 +103,7 @@ export class PedidoabmComponent implements OnInit {
     .subscribe(
       res => {
         this.respuestaServidor=res;
+        this.pedido.idPedido=this.respuestaServidor.insertId;
         this.detallePedido.idPedido=this.respuestaServidor.insertId;
         /* llenar los campos del objeto detalle de pedido */
       },
@@ -112,6 +118,27 @@ export class PedidoabmComponent implements OnInit {
   }
 
 
+cargarGrillaDetallePedido(){
+
+
+  this.detallePedidoService.obtengoDetallesPedidos(this.pedido.idPedido)
+  .subscribe(
+    res => {
+    /*   console.log('cargarGrillaDetallePedido'+ res); */
+      this.detalleSDePedido=res;
+
+
+    },
+    err => {
+      console.error(err);
+
+      return
+    }
+  )
+
+}
+
+
 
 
   guardarDetPedido(){
@@ -121,6 +148,9 @@ export class PedidoabmComponent implements OnInit {
     .subscribe(
       res => {
         console.log(res);
+        this.cargarGrillaDetallePedido();
+
+
       },
       err => {
         console.error(err);

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClienteService } from '../../servicios/cliente.service';
-
+import { Observable, of } from "rxjs";
 @Component({
   selector: 'app-cliente',
   templateUrl: './cliente.component.html',
@@ -10,7 +10,8 @@ export class ClienteComponent implements OnInit {
 
   constructor(private clienteService:ClienteService) { }
 
-  clientes:any=[];
+  clientes:Observable<any[]>;
+/*   clientes:any=[]; */
   busqueda:string='';
 
   ngOnInit() {

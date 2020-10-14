@@ -9,10 +9,12 @@ class DetallePedidoController {
         const detallepedido = await pool.query('SELECT * FROM detallePedido where idPedido = ?', [idPedido]);
        
         if (detallepedido.length > 0) {
-               res.json(detallepedido);
+            res.json(detallepedido);
+        }else{
+            res.status(404).json({ text: "No hay detalles pedidos" }); 
         }
-        res.status(404).json({ text: "No hay detalles pedidos" });
 
+        
     }
 
     

@@ -6,7 +6,7 @@ class ClienteController {
 
     public async listBusqueda(req: Request, res: Response): Promise<void> {
         const { nombrecliente } = req.params;
-        const clientes = await pool.query('SELECT * FROM cliente where nombrecliente like ?','%' + [nombrecliente] + '%');
+        const clientes = await pool.query('SELECT * FROM cliente where nombrecliente like ? or apellidocliente like ?', ['%' + nombrecliente + '%','%' + nombrecliente + '%'] );
         res.json(clientes);
               
     }

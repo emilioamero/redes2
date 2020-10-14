@@ -1,8 +1,6 @@
-
-
-
+<div clas="row">
 <div class="card border-primary mb-12">
-  <div class="card-header">Pedido Cliente <strong>{{nombre_cliente}}</strong></div>
+  <div class="card-header">Pedido <strong>{{pedido.idPedido}}</strong> - Cliente <strong>{{nombre_cliente}}</strong></div>
   <div class="card-body text-primary">
 
     <form>
@@ -39,12 +37,52 @@
     </form>
 
 
+  </div>
+</div>
 
 
+</div>
+
+<br>
+
+<!-- Grilla Detalle -->
+<div clas="row">
+  <div class="card border-primary mb-12">
+    <div class="card-header">Detalle del Pedido  <strong>{{pedido.idPedido}}</strong></div>
+    <div class="card-body text-primary">
+
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">campos tabla detalle d epedido</th>
+
+            <th>Acciones</th>
+          </tr>
+        </thead>
+
+
+        <tbody>
+          <tr *ngFor="let det of detalleSDePedido">
+            <th>¿?¿?</th>
+            <td>{{det.idPedido}}</td>
+            <td>{{det.idDetallepedido}}</td>
+            <td>
+              <!-- [routerLink]="['/pedido/editar', cli.idCliente,cli.nombrecliente + ' ' + cli.apellidocliente]"  -->
+              <a class="btn btn-primary btn-block">
+                <span class="fa fa-edit"></span>
+                 Eliminar Servicio
+              </a>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+  </div>
 
 
   </div>
-</div>
 
 
 
