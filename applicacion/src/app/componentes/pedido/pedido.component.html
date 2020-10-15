@@ -1,3 +1,51 @@
-<p>
-  pedido works!
-</p>
+
+<div clas="row">
+  <div class="card border-primary mb-12">
+    <div class="card-header">
+      <h5 class="text-left"> Pedidos </h5>
+    </div>
+    <div class="card-body text-primary">
+
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Cod. Pedido</th>
+            <th>Cliente</th>
+            <th>Fecha Pedido</th>
+            <th>Fecha Entrega</th>
+            <th>Total</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+
+
+        <tbody>
+          <tr *ngFor="let item of pedidos">
+            <td>{{item.idPedido}}</td>
+            <td>{{item.nombrecliente}}</td>
+            <td>{{item.fechapedido | date: 'dd/MM/yyyy'}}</td>
+            <td>{{item.fechaentrega | date: 'dd/MM/yyyy'}}</td>
+            <td>$ {{item.total}}</td>
+            <td>{{item.estado}}</td>
+            <td>
+              <!-- -->
+              <a href="" class="btn btn-success" style="margin-right: 10px;">
+                <span class="fa fa-check-square-o"></span>
+                 Entregar
+              </a>
+              <a href="" class="btn btn-primary">
+                <span class="fa fa-search"></span>
+                 Ver Detalle
+              </a>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div><!-- body card -->
+  </div><!-- card -->
+
+
+</div>

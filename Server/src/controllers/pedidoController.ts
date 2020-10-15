@@ -5,12 +5,12 @@ class PedidoController {
     
 
     public async list(req: Request, res: Response): Promise<void> {
-        const pedido = await pool.query('SELECT * FROM pedido');
+        const pedido = await pool.query('SELECT * FROM VPedido');
        
-        if (pedido.length > 0) {
-               res.json(pedido);
-        }
-        res.status(404).json({ text: "No hay pedidos" });
+      
+        res.json(pedido);
+        
+  
 
     }
 
