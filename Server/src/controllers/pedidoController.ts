@@ -5,7 +5,7 @@ class PedidoController {
     
 
     public async list(req: Request, res: Response): Promise<void> {
-        const pedido = await pool.query('SELECT * FROM VPedido');
+        const pedido = await pool.query('SELECT * FROM VPedido order by fechaentrega desc');
        
       
         res.json(pedido);
@@ -13,6 +13,19 @@ class PedidoController {
   
 
     }
+
+
+    public async actualizaEstado(req: Request, res: Response): Promise<any> {
+        const { idPedido } = req.params;
+        const detallepedido = await pool.query('update pedido set estado= ? where idPedido = ?', ['Entregado',idPedido]);
+       
+      
+        res.json({ text: "Pedido Actualizado" }); 
+        
+  
+        
+    }
+
 
     
     public async getOne(req: Request, res: Response): Promise<any> {

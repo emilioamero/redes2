@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: 'principal', component: PrincipalComponent},
   {path: 'cliente', component: ClienteComponent},
  {path: 'pedido', component: PedidoComponent},
- {path: 'pedido/editar/:idcliente/:nombrecliente', component: PedidoabmComponent}
+ {path: 'pedido/editar/:idcliente/:nombrecliente/:idPedido/:pendiente', component: PedidoabmComponent}
 /*  {path: 'clientes/editar/:id', component: EditarClienteComponent} */
 
 ];

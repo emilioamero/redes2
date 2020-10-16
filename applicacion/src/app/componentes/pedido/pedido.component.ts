@@ -16,7 +16,7 @@ import { Observable, of } from "rxjs";
 })
 export class PedidoComponent implements OnInit {
 
-  pedidos:any=[];
+  pedidos:Observable<any[]>;
 
   constructor(private pedidoService:PedidoService,
   private datePipe:DatePipe) { }
@@ -25,18 +25,32 @@ export class PedidoComponent implements OnInit {
     this.obtenerPedidos();
   }
 
-    obtenerPedidos(){
-      this.pedidoService.obtengoPedidos()
-      .subscribe(
-        res => {
-          console.log(res);
-          this.pedidos = res;
-        },
-        err => console.log(err)
-      )
+
+  actualizaPedido(idPedido:number){
+
+    this.pedidoService.actualizaPedido(idPedido).subscribe(
+      res => {
+        console.log(res);
+         this.obtenerPedidos();
+      },
+      err => console.log(err)
+    )
 
 
-    }
+
+  }
+  obtenerPedidos(){
+    this.pedidoService.obtengoPedidos()
+    .subscribe(
+      res => {
+        console.log(res);
+        this.pedidos = res;
+      },
+      err => console.log(err)
+    )
+
+
+  }
 
 
 }

@@ -27,14 +27,14 @@
             <td>{{item.fechapedido | date: 'dd/MM/yyyy'}}</td>
             <td>{{item.fechaentrega | date: 'dd/MM/yyyy'}}</td>
             <td>$ {{item.total}}</td>
-            <td>{{item.estado}}</td>
+            <td><strong>{{item.estado}}</strong></td>
             <td>
               <!-- -->
-              <a href="" class="btn btn-success" style="margin-right: 10px;">
+              <a *ngIf="item.estado=='Pendiente'" (click)="actualizaPedido(item.idPedido)" class="btn btn-success" style="margin-right: 10px;">
                 <span class="fa fa-check-square-o"></span>
                  Entregar
               </a>
-              <a href="" class="btn btn-primary">
+              <a [routerLink]="['/pedido/editar', item.idCliente ,item.nombrecliente,item.idPedido,item.estado]" class="btn btn-primary">
                 <span class="fa fa-search"></span>
                  Ver Detalle
               </a>
@@ -49,3 +49,4 @@
 
 
 </div>
+<br><br><br>

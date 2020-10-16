@@ -1,14 +1,20 @@
 <div clas="row">
-
+<!-- validacion -->
   <div class="alert alert-success" role="alert" *ngIf="validaCamposrequeridos">
     Debe seleccionar un <strong>Servicio</strong> y una <strong>Cantidad</strong>.
   </div>
+  <div class="alert alert-success" role="alert" *ngIf="ocultarAgregar">
+     <strong>Este pedido ya fué ENTREGADO</strong>.
+  </div>
+
+
+
 
 <div class="card border-primary mb-12">
   <div class="card-header">
     <h5>Pedido <strong>{{pedido.idPedido}}</strong> - Cliente <strong>{{nombre_cliente}}</strong></h5>
   </div>
-  <div class="card-body text-primary">
+  <div class="card-body text-primary" *ngIf="!ocultarAgregar">
 
     <form>
       <div class="form-row">
@@ -37,7 +43,7 @@
 
       </div>
 
-     <button (click)="guardarDetPedido()" type="submit" class="btn btn-primary mb-2" ><span class="fa fa-plus-square-o"></span> Agregar</button>
+     <button (click)="guardarDetPedido()" type="submit" class="btn btn-primary btn-block" ><span class="fa fa-plus-square-o"></span> Agregar</button>
 
 
 
@@ -82,10 +88,11 @@
             <td>{{det.total}}</td>
             <td>
               <!-- -->
-              <a  (click)="eliminarDetalle(det.idDetallepedido)" class="btn btn-primary btn-block">
+              <a *ngIf="!ocultarAgregar"  (click)="eliminarDetalle(det.idDetallepedido)" class="btn btn-primary btn-block">
                 <span class="fa fa-edit"></span>
                  Eliminar Servicio
               </a>
+              <h6 *ngIf="ocultarAgregar"><strong> No hay Acciones Disponibles</strong></h6>
             </td>
           </tr>
 
@@ -97,6 +104,8 @@
 
 
   </div>
+
+  <br><br><br>
 
 
 

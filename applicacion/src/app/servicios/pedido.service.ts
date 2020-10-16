@@ -19,6 +19,11 @@ export class PedidoService {
 
   }
 
+  actualizaPedido(idPedido: number) : ​Observable​<​any​>{
+    ​return​​ this​.​http​.​get​(​`${this.globals.URLapidatos}/Pedido/actualizaestado/${idPedido}`​​);
+
+  }
+
 
   guardarPedido(pedido:Pedido ) {
     return this.http.post(`${this.globals.URLapidatos}/Pedido`, pedido);
@@ -26,10 +31,10 @@ export class PedidoService {
 
 
 
-
+/*
   actualizarPedido(id: string|number, pedido: Pedido): Observable<Pedido> {
     return this.http.put(`${this.globals.URLapidatos}/pedido/${id}`, pedido);
-  }
+  } */
 
 
 

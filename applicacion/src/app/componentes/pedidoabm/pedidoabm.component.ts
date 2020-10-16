@@ -22,6 +22,7 @@ export class PedidoabmComponent implements OnInit {
   totalDetallesPedido:any=[];
 /* detalleSDePedido:any=[]; */
   validaCamposrequeridos:boolean=false;
+  ocultarAgregar:boolean=false;
 
 
 
@@ -59,16 +60,28 @@ export class PedidoabmComponent implements OnInit {
       err => console.log(err)
     )
 
+
+
     const params = this.activatedRoute.snapshot.params;
-    if (params.idcliente) {
-      this.pedido.idCliente=params.idcliente;
-      this.nombre_cliente=params.nombrecliente;
+    this.pedido.idCliente=params.idcliente;
+    this.nombre_cliente=params.nombrecliente;
 
 
+    if(params.pendiente=='Pendiente'){
+      this.ocultarAgregar=false;
+      console.log('ocultarAgregar=false');
+    }else{/* Entregado */
+      this.ocultarAgregar=true;
     }
 
+    if (params.idPedido==0) {
+        this.guardarPedido();
+    }else{
+      this.pedido.idPedido=params.idPedido;
+      this.detallePedido.idPedido=params.idPedido;
+      this.cargarGrillaDetallePedido()
+    }
 
-    this.guardarPedido();
 
 
   }

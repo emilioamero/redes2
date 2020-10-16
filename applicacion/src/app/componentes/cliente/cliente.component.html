@@ -45,7 +45,7 @@
           <td>{{cli.direccion}}</td>
           <td>{{cli.telefono}}</td>
           <td>
-            <a [routerLink]="['/pedido/editar', cli.idCliente,cli.nombrecliente + ' ' + cli.apellidocliente]" class="btn btn-primary btn-block">
+            <a [routerLink]="['/pedido/editar', cli.idCliente,cli.nombrecliente + ' ' + cli.apellidocliente,0,'Pendiente']" class="btn btn-primary btn-block">
               <span class="fa fa-edit"></span>
                Generar Pedido
             </a>
@@ -62,3 +62,4 @@
 
 
 
+<br><br><br>

@@ -17,7 +17,9 @@ class DetallePedidoController {
         
     }
 
-    
+
+
+
     public async calculoTotalPedido(req: Request, res: Response): Promise<any> {
         const { idPedido } = req.params;
         const detallepedido = await pool.query('SELECT SUM(cantidad*precio) AS total FROM VDetallepedido WHERE idpedido= ?', [idPedido]);
