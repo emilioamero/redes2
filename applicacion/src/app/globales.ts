@@ -7,5 +7,7 @@ export class Globals {
   URLapidatos:string='http://localhost:3000/api';
 
 
+  habilitoLoginAlinicio:boolean=true;
+
 }
 

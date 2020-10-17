@@ -15,6 +15,8 @@ import { PedidoComponent } from './componentes/pedido/pedido.component';
 import { PedidoabmComponent } from './componentes/pedidoabm/pedidoabm.component';
 /* Formatear */
 import { DatePipe } from '@angular/common';
+import { CallbackComponent } from './componentes/callback/callback.component';
+import { PerfilComponent } from './componentes/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { DatePipe } from '@angular/common';
     EditarClienteComponent,
     FooterComponent,
     PedidoComponent,
-    PedidoabmComponent
+    PedidoabmComponent,
+    CallbackComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

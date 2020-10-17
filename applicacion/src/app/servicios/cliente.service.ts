@@ -10,8 +10,6 @@ import {Globals} from 'src/app/globales'
 export class ClienteService {
 
 
-
-
   constructor​(​private ​​http​: ​HttpClient​,
     private globals:Globals
     ) { }
