@@ -1,0 +1,24 @@
+esta es la nueva
+npm install @auth0/auth0-angular
+
+el ejemplo usa este usar este 
+npm install --save @auth0/auth0-spa-js
+
+
+
+------------
+-Si se esta trabajando ccon el servidor poner el proyecto si o si en modo observador:
+1) en una terminal posicionarse en la carpeta del proyecto del server y ejecutar
+npm run build 
+2) en otra terminal  ejcutar la aplicacion con nodemon 
+npm run dev
+
+
+(comandos personalizados en el packaje.json)
+
+3) AL EDITAR subir al repositorio, primero agregar al espacio temporal
+git add .
+4) Subir al server Local
+git commit -m "mensaje/cambio"
+5)Subir a la nube
+git push -u origin master
